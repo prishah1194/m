@@ -1,0 +1,91 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#/"><span class="fa fa-film"></span> Movie Application</a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#/open"><span class="fa fa-home"></span>Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#/star"><span class="fa fa-star"></span>Star</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid content" ng-controller="OpenController">
+  <div class="row">
+    <div class="col-xs-12 col-lg-4">
+    <h2>Submit a Movie</h2>
+      <form novalidate name="submitMovieForm" class='submitMovieForm' ng-submit='submitMovie(movie)'>
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" class="form-control" ng-model="movie.title">
+        </div>
+        <div class="form-group">
+          <label>Genre</label>
+          <input type="text" class="form-control" ng-model="movie.genre"></input>
+        </div>
+        <div class="form-group">
+          <label>Actor</label>
+          <input type="text" class="form-control" ng-model="movie.actor"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Actress</label>
+          <input type="text" class="form-control" ng-model="movie.actress"></input>
+        </div>
+        <div class="form-group">
+          <label>Rating</label>
+          <input type="number" class="form-control" step="0.1" min="0" max="5" ng-model="movie.rating"></input>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <div class="col-xs-12 col-lg-8">
+      <h2 class="movie-section-header">List of Movies
+      <a href="" class="btn btn-info btn-lg">
+        <span class="glyphicon glyphicon-sort"> Sort</span>
+      </a>
+      <!-- <form class="example" action="" style=""> -->
+        <div class="example" style="width:200px;padding-top:20px;float:right">
+        <input type="text" placeholder="Search.." name="search2">
+        <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+      <!-- </form> -->
+    </h2>
+      
+      <div class='movies'>
+        <div class='movie' ng-repeat="movie in data.movies">
+          <div class="row movie-heading">
+            <div class="col-md-8"><span class="movie-subject">{{ movie.title }}</span></div>
+          </div> 
+          <div class="row movie-body">
+            <div class="col-md-8">Genre:{{ movie.genre }}</div>
+          </div>
+          <div class="row movie-footer">
+            <div class="col-md-1"><br /><span class="movie-delete fa fa-trash-o" ng-click="deleteMovie(movie)"></span></div>            
+            <div class="col-md-2"><br /><span class="movie-star fa fa-star" ng-click="starMovie(movie)"></span></div>
+            <div class="col">
+              Rating
+              <br  />
+              <div class="rating" style="color:#3267bc"><span class="movie-link">{{ movie.rating }}</span></div>
+            </div>
+            <div class="col">
+                Actor
+                <br  />
+                <div class="rating" style="color:#3267bc"><span class="movie-link">{{ movie.actor }}</span></div>
+              </div>
+              <div class="col">
+                  Actress
+                  <br  />
+                  <div class="rating" style="color:#3267bc"><span class="movie-link">{{ movie.actress }}</span></div>
+                </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
