@@ -10,7 +10,7 @@ client.connect();
 exports.submitMovie = (req, res) => {
   const results = [];
   const movie = req.body;
-  const query = client.query('INSERT INTO movies(title, genre, actor, actress, rating,star,status) values ($1, $2, $3, $4, $5,$6,$7)', [movie.title, movie.genre, movie.actor, movie.actress, movie.rating, movie.star, movie.status]);
+  const query = client.query('INSERT INTO movies(title, genre, actor, actress, rating) values ($1, $2, $3, $4, $5)', [movie.title, movie.genre, movie.actor, movie.actress, movie.rating]);
   query.on('row', (row) => {
     results.push(row);
   })
@@ -20,16 +20,15 @@ exports.submitMovie = (req, res) => {
 };
 
 exports.getOpenMovies = (req, res) => {
-  const openMovies = [];
+  const movies = [];
   const query = client.query('SELECT * FROM movies');
   query.on('row', (row) => {
-    openMovies.push(row);
+    movies.push(row);
   });
   query.on('end', () => {
-    return res.json(openMovies);
+    return res.json(movies);
   });
 };
-
 
 exports.getStaredMovies = (req, res) => {
   const starMovies = [];
@@ -55,6 +54,7 @@ exports.updateMovie = (req, res) => {
   });
 };
 
+
 exports.deleteMovie = (req, res) => {
   const results = [];
   const query = client.query('DELETE FROM movies WHERE movies.id = $1', [req.body.id]);
@@ -66,24 +66,3 @@ exports.deleteMovie = (req, res) => {
   });
 };
 
-// exports.filterActor=(req,res)=>{
-//   const results=[];
-//   const query=client.query('SELECT FROM movies WHERE movie.actor=$1', [req.body.actor])
-//   query.on('row',(row)=>{
-//     results.push(row);
-//   })
-//   query.on('end',()=>{
-//     return res.json(results)
-//   })
-// }
-
-// exports.filterActress=(req,res)=>{
-//   const results=[];
-//   const query=client.query('SELECT FROM movies WHERE movie.actress=$1', [req.body.actress])
-//   query.on('row',(row)=>{
-//     results.push(row);
-//   })
-//   query.on('end',()=>{
-//     return res.json(results)
-//   })
-// }

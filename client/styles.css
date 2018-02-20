@@ -1,10 +1,8 @@
 body {
-  background-color: #F1F1F1;
+  background-color: #F5F3F3;
 }
-
 .content {
-  padding: 2rem;
-  max-width: 1440px;
+  padding: 30px;
 }
 
 .movie, form {
@@ -14,19 +12,11 @@ body {
   font-size: 1em;
   line-height: 1.3em;
   border-radius: 10px;
-  box-shadow: 0 0 0 4px #fff, 2px 2px 6px 3px rgba(10, 10, 0, 0.5);
   font-weight: normal;
 }
-
-form {
-  border-radius: 0;
-  box-shadow: 0 0 0 4px #fff, 2px 3px 6px 1px rgba(10, 10, 0, 0.5);
+.movie{
+  box-shadow: 0 0 0 4px #fff, 2px 2px 6px 3px rgba(10, 10, 0, 0.5);
 }
-
-form .btn {
-  border-radius: 0;
-}
-
 .movie > .row {
   padding: 5px;
 }
@@ -40,24 +30,6 @@ h2 {
   font-size: 1.5em;
 }
 
-.movie-open, .movie-closed {
-  color: #fff;
-  padding: 5px 15px;
-  height: 2rem;
-}
-
-.movie-open {
-  background: rgb(255, 152, 0);
-}
-
-.movie-closed {
-  background: rgb(0, 118, 255);
-}
-
-.chat-link {
-  overflow-x: hidden;
-}
-
 .fa {
   cursor: pointer;
   font-size: 1.3em;
@@ -67,19 +39,7 @@ h2 {
 textarea {
   min-height: 7rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* 
 div.example input[type=text] {
   padding: 10px;
   font-size: 17px;
@@ -110,4 +70,4 @@ div.example::after {
   content: "";
   clear: both;
   display: table;
-}
+} */

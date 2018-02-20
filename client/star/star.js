@@ -15,6 +15,7 @@ angular.module('movies.star', [])
 
 
   $scope.getMovies();
+ 
 
   $scope.openMovie = function(movie) {
     Movies.updateMovie(movie)

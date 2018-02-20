@@ -27,8 +27,8 @@ router.get('/', (req, res, next) => {
 
 app.listen(port, (err) => {
   if(err){
-    console.log('Cannot connect to sever', err)}
+    console.log('Cannot connect to sever... Try Again!!', err)}
     else{
-     console.log(`Connected.. Server is listening on port ${port}`);
+     console.log(`Server is listening on port ${port}`);
     }
 });

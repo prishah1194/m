@@ -22,6 +22,7 @@ angular.module('movies.factories',[])
     });
   };
 
+
   var submitMovie = function(movie) {
     return $http({
       method: 'POST',
@@ -38,6 +39,7 @@ angular.module('movies.factories',[])
     });
   };
 
+
   var deleteMovie = function(movie) {
     return $http({
       method: 'POST',
@@ -45,6 +47,8 @@ angular.module('movies.factories',[])
       data: movie
     });
   };
+
+
 
   return {
     getOpen: getOpen,

@@ -1,13 +1,11 @@
 const router = require('express').Router();
-const requestHandler = require('./request-handler.js');
+const handler = require('./request-handler.js');
 
-router.get('/open', requestHandler.getOpenMovies);
-router.get('/star', requestHandler.getStaredMovies);
-
-router.post('/movie', requestHandler.submitMovie);
-router.post('/delete', requestHandler.deleteMovie);
-
-router.put('/movie', requestHandler.updateMovie);
+router.get('/open', handler.getOpenMovies);
+router.get('/star', handler.getStaredMovies);
+router.post('/movie', handler.submitMovie);
+router.post('/delete', handler.deleteMovie);
+router.put('/movie', handler.updateMovie);
 
 
 module.exports = router;
