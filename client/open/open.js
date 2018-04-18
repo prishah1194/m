@@ -14,8 +14,7 @@ app.controller('OpenController', function ($scope, $route, Movies) {
   $scope.getMovies();
 
   
-  $scope.reverseOrder = true;
-  $scope.sortField = 'title';
+
   $scope.sortBy = function(sortField) {
     $scope.reverseOrder = ($scope.sortField === sortField) ? !$scope.reverseOrder : false;
     $scope.sortField = sortField;
