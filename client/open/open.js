@@ -1,10 +1,14 @@
+//Create a new module
 var app=angular.module('movies.open', [])
+//We create an AngularJS Module, app, for our application. 
+//Then we add the controller's constructor function to the module using the .controller() method. 
+//This keeps the controller's constructor function out of the global scope
 app.controller('OpenController', function ($scope, $route, Movies) {
-  
   $scope.data = {};
   $scope.getMovies = function() {
     Movies.getOpen()
       .then(function(openMovies) {
+        
         $scope.data.movies = openMovies;
       })
       .catch(function(error) {

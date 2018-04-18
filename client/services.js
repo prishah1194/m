@@ -47,9 +47,7 @@ angular.module('movies.factories',[])
       data: movie
     });
   };
-
-
-
+  
   return {
     getOpen: getOpen,
     getStar: getStar,
